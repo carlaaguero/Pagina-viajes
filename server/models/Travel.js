@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const url = 'localhost:8080/public/image';
 const TravelSchema = new mongoose.Schema({
 
     nombre:{
@@ -23,7 +23,10 @@ const TravelSchema = new mongoose.Schema({
 
     imagen:{
         type: String,
-        maxlength: 50
+        maxlength: 50,
+        get: function (v){
+            return `${url}/${v}`
+        }
     },
 
     precio: {
