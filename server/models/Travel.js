@@ -24,8 +24,8 @@ const TravelSchema = new mongoose.Schema({
     imagen:{
         type: String,
         maxlength: 50,
-        get: function (v){
-            return `${url}/${v}`
+        set: function (value){
+            return `${url}/${value}`
         }
     },
 

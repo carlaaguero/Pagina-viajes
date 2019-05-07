@@ -48,9 +48,24 @@ router.delete('/:id', async (req, res)=>{
 });
 //Enlazar las imagenes con los destinos
 router.post('/upload/:id', multer.single('file'), async(req, res) => {
+    
     const viajeId = req.params.id;
-  
+    
+
+    const travel = await Travel.findOneAndUpdate({ _id: viajeId }, {imagen: req.file.originalname} )
+
+    res.send(travel)
+   
+
+   
+   
     console.log(viajeId)
+
+
+
+
+
+
     const fileName = 'Imagen no subida';
    
 })
